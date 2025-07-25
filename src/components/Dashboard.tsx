@@ -18,7 +18,7 @@ import {
   AlertCircle,
   Zap
 } from 'lucide-react'
-import VoiceInterface from './VoiceInterface'
+import ContinuousVoiceInterface from './ContinuousVoiceInterface'
 import AgentCards from './AgentCards'
 import TaskLogs from './TaskLogs'
 import CustomerContext from './CustomerContext'
@@ -224,14 +224,8 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Voice Interface & Agents */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Voice Interface */}
-            <VoiceInterface
-              language={language}
-              keigoMode={keigoMode}
-              isActive={isVoiceActive}
-              onActiveChange={setIsVoiceActive}
-              onTaskCreated={loadTasks}
-            />
+            {/* Continuous Voice Interface */}
+            <ContinuousVoiceInterface />
 
             {/* Agent Cards */}
             <AgentCards
