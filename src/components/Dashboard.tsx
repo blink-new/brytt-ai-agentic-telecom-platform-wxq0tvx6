@@ -18,7 +18,7 @@ import {
   AlertCircle,
   Zap
 } from 'lucide-react'
-import ContinuousVoiceInterface from './ContinuousVoiceInterface'
+import AutonomousVoiceAgent from './AutonomousVoiceAgent'
 import AgentCards from './AgentCards'
 import TaskLogs from './TaskLogs'
 import CustomerContext from './CustomerContext'
@@ -224,8 +224,14 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Voice Interface & Agents */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Continuous Voice Interface */}
-            <ContinuousVoiceInterface />
+            {/* Autonomous Voice Agent */}
+            <AutonomousVoiceAgent
+              onTaskComplete={(task) => {
+                console.log('Task completed:', task)
+                // Refresh task logs
+                loadTasks()
+              }}
+            />
 
             {/* Agent Cards */}
             <AgentCards
